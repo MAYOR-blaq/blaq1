@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY</title>
+    <script src="https://ajax.ggogleapis.com/ajax/libs/query/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="jquery/css/jquerylightness.css">
+    <style>
+        *{
+            margin: 10px;
+            padding-left: 10px;
+        }
+        .cars .ui-widget{
+            background: grey;
+            color: black;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+        .ui-selected{
+            background: blue;
+        }
+        .hide{
+            font-size: 27px;
+
+        }
+        button{
+            background: grey;
+            width: 100px;
+            height: 25px;
+            border-radius: 4px;
+            margin-right: 16px;
+        }
+        button:hover{
+            cursor: pointer;
+            background: black;
+            color: beige;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jquery playground</h1>
+    <input type="date" placeholder="enter of date of birth " id="date">
+    <input type="date">
+
+    <ol class="cars">
+        <li class="ui-widget" style="width: 200px;">Lamborghini</li>
+        <li class="ui-widget" style="width: 200px;">McLaren</li>
+        <li class="ui-widget" style="width: 200px;">Bugatti</li>
+        <li class="ui-widget" style="width: 200px;">RollsRoyce</li>
+        <li class="ui-widget" style="width: 200px;">Mercedes Benz</li>
+        <li class="ui-widget" style="width: 200px;">Pagani</li>
+        <li class="ui-widget" style="width: 200px;">Chevrolet</li>
+
+    </ol>
+    <p class="p1">this boy</p>
+    <p class="p2">this boy</p>
+    <p class="p3">this boy</p>
+    <p class="p4">this boy</p>
+
+    <button id="fadein">fade in</button>
+    <button id="fadeout">fade out</button>
+
+    <p class="hide">click on the button to hide</p>
+    <button id="hide">Click2Hide</button>
+    <button id="show">Show</button>
+
+    <script src="jquery/js/jqueryjs.js"></script>
+    <script src="jquery/js/jqueryui.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(selector).action();
+            $("#date").datepicker();
+            $("#date").tooltip();
+            $(".cars").selectable();
+            $("cars").sortable();
+
+            $("#hide").click(function(){
+                $(".hide").hide();
+            })
+            $("#show").click(function(){
+                $("p").show();
+            })
+            $(".select").sortable();
+            $(".select").selectable();
+
+        })
+    </script>
+</body>
+</html>

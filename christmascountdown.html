@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="html,css,js,countdown,web development">
+    <title>Christmas countdown</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("-5944803902891344148_121.jpg");
+        }
+        .container{
+            color: red;
+        }
+        .container h2{
+            text-align: center;
+            font-size: 70px;
+            font-family: cursive;
+        }
+        .time-content table{
+            text-align: center;
+            align-items: center;
+            margin: auto;
+            padding: 0 5rem;
+            height: 100px;
+        }
+        .time-content table,tr,th,td{
+            padding: 0 3rem;
+        }
+        th{
+            color: gold;
+            font-size: 30px;
+        }
+        td{
+            font-size: 30px;
+            color: red;
+
+        }
+        input{
+            padding: 10px 30px;
+            width: 80%;
+            outline: none;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Christmas in....</h2>
+
+        <div class="time-content">
+            <table>
+                <tr class="time">                   
+                    <th class="text">Days</th>
+                    <th class="text">Hours</th>
+                    <th class="text">Minutes</th>
+                    <th class="text">Seconds</th>
+                </tr>
+
+                <tr class="time">
+                    <td class="days number"></td>
+                    <td class="hours number"></td>
+                    <td class="minutes number"></td>
+                    <td class="seconds number"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script  type="text/javascript">
+        // check if initial countdown date is stored in a local storage
+let countdownDate = new Date ("2024-12-25T00:00:00").getTime();
+localStorage.setItem("countdownDate", countdownDate);
+
+
+const targetDate = countdownDate;
+const seconds = document.querySelector(".seconds");
+const minutes = document.querySelector(".minutes");
+const hours = document.querySelector(".hours");
+const days = document.querySelector(".days");
+
+const updateCountdown = () => {
+const now = new Date().getTime();
+const remainingTime = targetDate - now;
+
+if(remainingTime <= 0) {
+    clearInterval(interval);
+    localStorage.removeItem('countdownDate'); //remove countdown date stored
+}
+const secNum = Math.floor((remainingTime % (1000 * 60)) / 1000);
+// remaining time %(1000 * 60) calculates the milliseconds remainig within the current minutes
+// dividing the 1000 converts milliseconds to seconds
+// mathfloor ensures to get the whole number of seconds,discarding the fractional part
+const minNum = Math.floor((remainingTime % (1000 * 60 *60)) / (1000 * 60));
+// remaining time %(1000 * 60 * 60) calculates the milliseconds remaining within the current hour
+//dividing the 1000 converts milliseconds to minutes
+// mathfloor ensuresw to get the whole number of minutes
+const hrNum = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+// remaining time %(1000 * 60 * 60 * 24 ) claculates the milliseconds remaining within the current day 
+// dividing the 1000 converts milliseconds to hours
+// mathfloor ensures to get the whole number of hours
+const dayNum = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+/*
+dividing remaining time by (1000 * 60 * 60 *24) converts to milliseconds to day
+math.floor ensures you get the whole number of days
+*/
+/*
+math flor is essential in your contdown timer to comvert the continous time values into discret whole number 
+suitable for display.this helps in presinting a clean and accurate countdown without any fraction in the seconds,
+minutes,hr and day
+*/
+seconds.textContent = secNum < 10 ? `0${secNum}` : secNum;
+minutes.textContent = minNum < 10 ? `0${minNum}` : minNum;
+hours.textContent = hrNum < 10 ? `0${hrNum}` : hrNum;
+days.textContent = dayNum < 10 ? `0${dayNum}` : dayNum;
+
+};
+updateCountdown();//initial call to update countdowndate
+
+const interval = setInterval(updateCountdown, 1000);
+
+    </script>
+    
+</body>
+</html>

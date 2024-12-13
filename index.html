@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger">Menu</span>
+            <a href="#" class="logo"><h2>Logo</h2></a>
+            <ul class="link">
+                <span class="close-btn rounded">Close</span>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <button class="login-btn">Login</button>
+        </nav>
+    </header>
+
+    <div class="blur-bg-overlay"></div>
+    <div class="form-popup">
+        <span class="close-btn rounded">X</span>
+        <div class="form-box login">
+            <div class="form-details">
+           <h2>Welcome</h2>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eligendi soluta totam dolor expedita, doloribus quis nobis tempore. Voluptates libero atque illo ullam, amet vero commodi fuga minima nisi accusantium.</p>     
+            </div>
+            <div class="form-content">
+                <h2>LOGIN</h2>
+                <form action="">
+                    <div class="input-feild email">
+                        <input type="text">
+                        <label for="">Email</label>
+                        <div class="error error-txt">email can't be empty</div>
+                    </div>
+                    <div class="input-feild password">
+                        <input type="password">
+                        <label for="">password</label>
+                        <i class="" id="password-icon"></i>
+                        <div class="error error-txt">password can't be empty</div>
+                    </div>
+                    <button class="log-btn">Log In</button>
+                    <a href="forgot.php" class="forgot">forgot password?</a>
+                </form>
+                <div class="button-link">don't have an account? <a href="" id="signup-link"></a></div>
+
+            </div>
+        </div>
+        <div class="form-box signup">
+            <div class="form-details">
+                <h2>Create account</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem velit eaque ab reprehenderit natus incidunt nihil labore laborum, consequatur architecto, officia odio. Sed expedita exercitationem dicta in sint! Eveniet, rem!</p>
+            </div>
+            <div class="form-content">
+                <h2>Sign up</h2>
+                <form action="">
+                    <div class="input-feild">
+                        <input type="text">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="input-feild">
+                        <input type="password">
+                        <label for="password">create password</label>
+                    </div>
+                    <div class="policy-text">
+                        <input type="checkbox" id="policy">
+                        <label for="policy">I agree to the <a href="term&condition.html">Terms&Conditions</a></label>
+                    </div>
+                </form>
+                <button>sign up</button>
+            </div>
+        </div>
+    </div>
+    <script src="sript.js"></script>
+    <script src="script1.js"></script>
+</body>
+</html>
